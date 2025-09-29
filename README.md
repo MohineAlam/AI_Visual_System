@@ -16,7 +16,7 @@ And software:
 
 
 ### Step One
-- Download python v3.10 so it is compatibly with  the lucam software as it uses older library version
+- download python v3.10 so it is compatible with the lucam software as it uses older python versions
 - create a virtual environment with the correct python version e.g.:
   python -3.10 -m venv lucam-env
 - activate the envrionment
@@ -25,3 +25,17 @@ And software:
 - pip install the following libraries:
   pip install opencv-python numpy torch torchvision lucam
 
+## Step Two
+- set up your lumenera camera with the USB-B to USB-A cable connecting it to your PC (plug in the barrel jack charger if required - usually the USB cable is enough to power it)
+- Clone this github respository to access the scripts, using the clone link etc.
+- Run the lucam_test.py script, this will test if the wrapper library works with the SDK:
+  python test_lucam.py
+
+If successfull you should recieve a message in the follownig structure:
+"Camera initialised: pUSHORT"
+"Caputured image shape: (1200, 1600)"
+"Camera released"
+
+If unsuccessful:
+"Error during snapshot: (error type)"
+"Image type: (image type)"
