@@ -25,7 +25,7 @@ And software:
 - pip install the following libraries:
   pip install opencv-python numpy torch torchvision lucam
 
-## Step Two
+### Step Two
 - set up your lumenera camera with the USB-B to USB-A cable connecting it to your PC (plug in the barrel jack charger if required - usually the USB cable is enough to power it)
 - Clone this github respository to access the scripts, using the clone link etc.
 - Run the test_lucam.py script, this will test if the wrapper library works with the SDK:
@@ -34,8 +34,14 @@ And software:
 If successfull you should recieve a message in the follownig structure:
 "Camera initialised: pUSHORT"
 "Caputured image shape: (1200, 1600)"
+"Image saved"
 "Camera released"
 
 If unsuccessful:
 "Error during snapshot: (error type)"
 "Image type: (image type)"
+"Error, image not saved"
+
+### Step Three
+- Placethe camera infront of a clear object
+- run the test_pytorch_model.py script to see if the pre-trained model recognises your image
