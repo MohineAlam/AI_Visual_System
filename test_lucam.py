@@ -1,5 +1,6 @@
 # import lucam library
 from lucam import Lucam # class we will use
+import cv2
 
 # you can check if the class exists by uncommenting
 #print(dir(Lucam))
@@ -11,20 +12,24 @@ from lucam import Lucam # class we will use
 cam = Lucam()
 print("Camera initialised: ", cam.name)
 
-# take image
+# take image and convert to colour scale
 image = cam.TakeSnapshot()
-
+rgb_image = cv2.cvtColor(image, cv2.COLOR_BAYER_BG2RGB)
 # print shape as numpy array
 # safe test using exception handling
 try:
   print("Captured image shape: ", image.shape)
-except:
+except Exception as e:
   print("Error during snapshot: ", e)
   # check what array it is if it is not numpy array
   print("Image type", type(image))
 
 # save image
-cam.SaveImage(image, "test_output.bmp")
+try:
+  cv2.imwrite("test_output.jpg", cv2.cvtColor(rgb_image, cv2.COLOR_BGR2RGB))
+  print("Picture saved")
+except Exception as e:
+  print("Error, image not saved.")
 
 # close the camera
 del cam
