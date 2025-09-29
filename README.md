@@ -9,7 +9,7 @@ hardware:
 And software:
 - python v3.10 (download from official website: https://www.python.org/)
 -  Software Developer Kit (SDK) v6.9.0 from Lucam Teledyne (link for windows from official website: https://www.teledynevisionsolutions.com/en-gb/support/support-center/software-firmware-downloads/lumenera/lucam-software-and-software-development-kit/)
-- lucam (wrapper library)
+- lucam (wrapper library which interacts with the lumenera LuCam API)
 - opencv-python (image/video processing includnig computer vision library)
 - numpy (powers image processing with maths within arrarys e.g. ([1,2,3],[4,5,6]))
 - torch and torchvision - from pytorch (deep learning framework and computer vision libraries - image classification and object detection)
