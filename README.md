@@ -11,7 +11,6 @@ And software:
 -  Software Developer Kit (SDK) v6.9.0 from Lucam Teledyne (link for windows from official website: https://www.teledynevisionsolutions.com/en-gb/support/support-center/software-firmware-downloads/lumenera/lucam-software-and-software-development-kit/)
 - lucam (wrapper library which interacts with the lumenera LuCam API)
 - opencv-python (image/video processing includnig computer vision library)
-- numpy (powers image processing with maths within arrarys e.g. ([1,2,3],[4,5,6]))
 - torch and torchvision - from pytorch (deep learning framework and computer vision libraries - image classification and object detection)
 - json (to encode and decode JSON data, ease data exchange between systems and API)
 - argparse (creates user friendly command line interfaces)
@@ -25,7 +24,7 @@ And software:
   source lucam-env/Scripts/activate
 - Download the SDK from the official website (for your operating system - linux / windows)
 - pip install the following libraries:
-  pip install opencv-python numpy torch torchvision lucam json argparse
+  pip install opencv-python torch torchvision lucam argparse
 
 ### Step Two
 - set up your lumenera camera with the USB-B to USB-A cable connecting it to your PC (plug in the barrel jack charger if required - usually the USB cable is enough to power it)
@@ -48,4 +47,5 @@ If unsuccessful:
 - Place the camera infront of a clear object
 - run the test_default_pytorch_model.py script to see if the pre-trained model recognises your image
   python test_default_pytorch_model.py -o /path/to/output/folder
+  
   
