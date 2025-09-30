@@ -13,6 +13,7 @@ And software:
 - opencv-python (image/video processing includnig computer vision library)
 - numpy (powers image processing with maths within arrarys e.g. ([1,2,3],[4,5,6]))
 - torch and torchvision - from pytorch (deep learning framework and computer vision libraries - image classification and object detection)
+- json (to encode and decode JSON data, ease data exchange between systems and API)
 
 
 ### Step One
@@ -23,7 +24,7 @@ And software:
   source lucam-env/Scripts/activate
 - Download the SDK from the official website (for your operating system - linux / windows)
 - pip install the following libraries:
-  pip install opencv-python numpy torch torchvision lucam
+  pip install opencv-python numpy torch torchvision lucam json
 
 ### Step Two
 - set up your lumenera camera with the USB-B to USB-A cable connecting it to your PC (plug in the barrel jack charger if required - usually the USB cable is enough to power it)
@@ -43,5 +44,7 @@ If unsuccessful:
 "Error, image not saved"
 
 ### Step Three
-- Placethe camera infront of a clear object
-- run the test_pytorch_model.py script to see if the pre-trained model recognises your image
+- Place the camera infront of a clear object
+- run the test_default_pytorch_model.py script to see if the pre-trained model recognises your image
+  python test_default_pytorch_model.py -o /path/to/output/folder
+  
