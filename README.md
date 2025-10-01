@@ -3,17 +3,17 @@
 
 ## In this project I used the following: 
 ### Hardware
-#### - Lumenera LU200c industrial camera (including USB-B to USB-A cable and charger)
-#### - Raspberry Pi 4 b+ (including micro SD and charger)
+- Lumenera LU200c industrial camera (including USB-B to USB-A cable and charger)
+- Raspberry Pi 4 b+ (including micro SD and charger)
 
 ### Software
-#### - python v3.10 (download from official website: https://www.python.org/)
-#### -  Software Developer Kit (SDK) v6.9.0 from Lucam Teledyne (link for windows from official website: https://www.teledynevisionsolutions.com/en-gb/support/support-center/software-firmware-downloads/lumenera/lucam-software-and-software-development-kit/)
-#### - lucam (wrapper library which interacts with the lumenera LuCam API)
-#### - opencv-python (image/video processing includnig computer vision library)
-#### - torch and torchvision - from pytorch (deep learning framework and computer vision libraries - image classification and object detection)
-#### - json (to encode and decode JSON data, ease data exchange between systems and API)
-#### - argparse (creates user friendly command line interfaces)
+- python v3.10 (download from official website: https://www.python.org/)
+-  Software Developer Kit (SDK) v6.9.0 from Lucam Teledyne (link for windows from official website: https://www.teledynevisionsolutions.com/en-gb/support/support-center/software-firmware-downloads/lumenera/lucam-software-and-software-development-kit/)
+- lucam (wrapper library which interacts with the lumenera LuCam API)
+- opencv-python (image/video processing includnig computer vision library)
+- torch and torchvision - from pytorch (deep learning framework and computer vision libraries - image classification and object detection)
+- json (to encode and decode JSON data, ease data exchange between systems and API)
+- argparse (creates user friendly command line interfaces)
 
 
 ### Step One
