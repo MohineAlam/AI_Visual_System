@@ -45,7 +45,19 @@ If unsuccessful:
 
 ### Step Three
 - Place the camera infront of a clear object
-- run the test_default_pytorch_model.py script to see if the pre-trained model recognises your image
+- run the test_default_pytorch_model.py script to see if the resnet and pytorch has been set up correctly
   python test_default_pytorch_model.py -o /path/to/output/folder
-  
-  
+
+If successfull you should recieve the predicted class and labelin this format:
+"Predicted class: "
+"Predicted label: "
+
+### Step Four
+- train your model using a modified resnet18, you will provide the paths to your training and validating datasets, as well as the number of classes you have within
+- run the train_your_model.py script:
+- python train_your_model.py -t /path/to/training/dataset -v /path/to/validate/dataset -c 5
+
+If successfull you will have your model saved in a new folder called "models/" within your working directory called model.pth
+
+### Step Five
+- Run your trained model on a live snapshot
