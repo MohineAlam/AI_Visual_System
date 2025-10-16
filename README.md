@@ -53,7 +53,7 @@ If successfull you should recieve the predicted class and labelin this format:
 "Predicted label: "
 
 ### Step Four
-- train your model using a modified resnet18, you will provide the paths to your training and validating datasets, as well as the number of classes you have within
+- train your modified resnet18 model using pytorch, you will provide the paths to your training and validating datasets, as well as the number of classes you have within
 - run the train_your_model.py script:
 - python train_your_model.py -t /path/to/training/dataset -v /path/to/validate/dataset -c 5
 
