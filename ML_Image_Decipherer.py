@@ -11,6 +11,10 @@ import torch
 
 ####---- trace functions being called ----####
 def trace_my_code(frame,event,arg):
+  """
+  Traces the functions being called
+  Returns trace to track all functions
+  """
   if os.path.basename(frame.f_code.co_filename) == "ML_Image_Decipherer.py":
     if event == "call":
       print(f"-> Calling {frame.f_code.co_name}() at line {frame.f_lineno}")
@@ -27,10 +31,16 @@ parser = argparse.ArgumentParser(
 )
 parser.add_argument("-i", "--input", required = True, help = "Name the input image will be saved under.")
 parser.add_argument("-o", "--output", required = True, help = "Output pathway to store your input image.")
+parser.add_argument("-c", "--class_num", type = int, required = True, help = "The number of classes you used to train your model.")
+parser.add_Argument("-cn", "--class_name", required = True, help = "This is a list of the class names you initially used to train your model e.g. ['Dog', 'Cat', 'Puppy', 'Kitten']. The names must be the same.")
 args = parser.parse_args()
 
 ####---- check pathway ----####
 def check_path(output):
+  """ 
+  Function to check paths 
+  Returns True
+  """
   if not os.path.exists(output):
     print("Output path does not exist.")
     sys.exit()
@@ -41,6 +51,10 @@ def check_path(output):
 
 ####---- take snapshot ----####
 def take_snapshot(output,input):
+  """ 
+  Function to take image and save it
+  Returns grey scale and coloured image
+  """
   if check_path(output):
     cam = Lucam()
     print("Camera initialised: ", cam.name)
@@ -66,6 +80,10 @@ def take_snapshot(output,input):
 
 ####---- preprocess image for model - formatting ----####
 def preprocess_img(output,input):
+  """
+  Transforms image to suit pytorch libraries
+  returns modified 4d tensor
+  """
   # unpack snapshot 
   img, rgb_img = take_snapshot(output,input)
   # formatting parameters
@@ -80,3 +98,18 @@ def preprocess_img(output,input):
   input_tensor = preprocess(rgb_img).unsqueeze(0)
   
   return input_tensor
+
+####---- run trained model ----####
+def run_model(output, input, class_nu):
+  """
+  This function runs the model after calling the previous functions
+  unpacks tensor to predict with model
+  returns predicted class and label
+  """
+  # unpack tensor
+  tensor = preprocess_img(output, input)
+  # make prediction
+  device = torch.device("cuda" if torch.cuda.is_available() else "cpu") # change to gpu if available
+  model = models.resnet18(pretrained = False)
+  load_model = torch.load()
+
