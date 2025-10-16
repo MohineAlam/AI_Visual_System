@@ -11,7 +11,7 @@ import torch
 
 ####---- trace functions being called ----####
 def trace_my_code(frame,event,arg):
-  if os.path.basename(frame.f_code.co_filename) == "ai_image_decipherer.py":
+  if os.path.basename(frame.f_code.co_filename) == "ML_Image_Decipherer.py":
     if event == "call":
       print(f"-> Calling {frame.f_code.co_name}() at line {frame.f_lineno}")
     elif event == "return":
