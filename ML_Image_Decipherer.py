@@ -31,21 +31,26 @@ parser = argparse.ArgumentParser(
 )
 parser.add_argument("-i", "--input", required = True, help = "Name the input image will be saved under.")
 parser.add_argument("-o", "--output", required = True, help = "Output pathway to store your input image.")
-parser.add_argument("-c", "--class_num", type = int, required = True, help = "The number of classes you used to train your model.")
-parser.add_Argument("-cn", "--class_name", required = True, help = "This is a list of the class names you initially used to train your model e.g. ['Dog', 'Cat', 'Puppy', 'Kitten']. The names must be the same.")
+parser.add_argument("-m", "--model_path", required = True, help = "Pathway where your trained model is stored. Inlucde the name of the model, e.g., model.pth")
+parser.add_argument("-c", "--class_names", required = True, help = "This is a list of the class names you initially used to train your model e.g. ['Dog', 'Cat', 'Puppy', 'Kitten']. The names must be the same.")
+
 args = parser.parse_args()
 
 ####---- check pathway ----####
-def check_path(output):
+def check_path(output, model_path):
   """ 
   Function to check paths 
-  Returns True
+  parameters: output, model_path
+  returns True
   """
-  if not os.path.exists(output):
+  if not os.path.exists(output, model_path):
     print("Output path does not exist.")
     sys.exit()
+  elif not os.path.exists(model_path):
+    print("Pathway to model does not exist.")
+    sys.exit()
   else:
-    print("Output pathway exists.")
+    print("Output and model pathway exists.")
     
     return True
 
@@ -53,7 +58,8 @@ def check_path(output):
 def take_snapshot(output,input):
   """ 
   Function to take image and save it
-  Returns grey scale and coloured image
+  parameters: output, input
+  returns grey scale and coloured image
   """
   if check_path(output):
     cam = Lucam()
@@ -82,6 +88,7 @@ def take_snapshot(output,input):
 def preprocess_img(output,input):
   """
   Transforms image to suit pytorch libraries
+  parameters: output, input
   returns modified 4d tensor
   """
   # unpack snapshot 
@@ -100,10 +107,11 @@ def preprocess_img(output,input):
   return input_tensor
 
 ####---- run trained model ----####
-def run_model(output, input, class_nu):
+def run_model(output, input, class_names, model_path):
   """
   This function runs the model after calling the previous functions
   unpacks tensor to predict with model
+  parameters: output, input, class_name, model_path
   returns predicted class and label
   """
   # unpack tensor
@@ -111,5 +119,26 @@ def run_model(output, input, class_nu):
   # make prediction
   device = torch.device("cuda" if torch.cuda.is_available() else "cpu") # change to gpu if available
   model = models.resnet18(pretrained = False)
-  load_model = torch.load()
+  model.fc = nn.Linear(model.fc.in_features, len(class_names))
+  load_model = torch.load(model_path)
+  model.load_state_dict(load_model)
+  model.to(device)
+  model.eval()
 
+  with torch.no_grad(): # don't train model with image
+    tensor = tensor.to(device) # put tensor on same computer (GPU or CPU)
+    output = model(tensor)
+    predicted_class = output.argmax().items()
+    predicted_label = class_names[predicted_class]
+  # print prediction
+  print(f"Predicted class: {predicted_class}")
+  print(f"Predicted label: {predicted_label}")
+
+####---- call function ----####
+user = input("All set up and ready to take a snapshot with your camera? Press y to continue or anything else to exit: ")
+if user == "y":
+  print("Running model.")
+  run_model(args.output, args.input, args.class_names, args.model_path)
+else:
+  print("Exiting system.")
+  sys.exit()
