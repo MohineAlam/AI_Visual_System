@@ -55,9 +55,17 @@ If successfull you should recieve the predicted class and labelin this format:
 ### Step Four
 - train your modified resnet18 model using pytorch, you will provide the paths to your training and validating datasets, as well as the number of classes you have within
 - run the train_your_model.py script:
-- python train_your_model.py -t /path/to/training/dataset -v /path/to/validate/dataset -c 5
+  python train_your_model.py -t /path/to/training/dataset -v /path/to/validate/dataset -c 5
 
 If successfull you will have your model saved in a new folder called "models/" within your working directory called model.pth
 
 ### Step Five
-- Run your trained model on a live snapshot
+- Run your trained model on a live snapshot, set up your camera and run the ML_image_decipherer.py script with four arguments:
+  python ML_image_decipherer.py -i image_name -o output/path/to/save/image -c ["list","of","class","names"] -m model/path/model.pth
+
+  There will be a prompt asking if you're "All set up and ready to take a snapshot with your camera?", you can then press y to continue.
+
+  If successful you will have a prediction in the format:
+  "Predicted class: "
+  "Predicted label: "
+  
