@@ -32,7 +32,7 @@
 - Run the test_lucam.py script, this will test if the wrapper library works with the SDK:
   python test_lucam.py
 
-If successfull you should recieve a message in the follownig structure:
+If successful you should recieve a message in the follownig structure:
 "Camera initialised: pUSHORT"
 "Caputured image shape: (1200, 1600)"
 "Image saved"
@@ -48,7 +48,7 @@ If unsuccessful:
 - run the test_default_pytorch_model.py script to see if the resnet and pytorch has been set up correctly
   python test_default_pytorch_model.py -o /path/to/output/folder
 
-If successfull you should recieve the predicted class and labelin this format:
+If successful you should recieve the predicted class and label in this format:
 "Predicted class: "
 "Predicted label: "
 
@@ -57,7 +57,7 @@ If successfull you should recieve the predicted class and labelin this format:
 - run the train_your_model.py script:
   python train_your_model.py -t /path/to/training/dataset -v /path/to/validate/dataset -c 5
 
-If successfull you will have your model saved in a new folder called "models/" within your working directory called model.pth
+If successful you will have your model saved in a new folder called "models/" within your working directory called model.pth
 
 ### Step Five
 - Run your trained model on a live snapshot, set up your camera and run the ML_image_decipherer.py script with four arguments:
