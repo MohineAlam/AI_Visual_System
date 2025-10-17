@@ -4,7 +4,6 @@
 ## In this project I used the following: 
 ### Hardware
 - Lumenera LU200c industrial camera (including USB-B to USB-A cable and charger)
-- Raspberry Pi 4 b+ (including micro SD and charger)
 
 ### Software
 - python v3.10 (download from official website: https://www.python.org/)
