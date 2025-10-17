@@ -62,10 +62,9 @@ If successfull you will have your model saved in a new folder called "models/" w
 ### Step Five
 - Run your trained model on a live snapshot, set up your camera and run the ML_image_decipherer.py script with four arguments:
   python ML_image_decipherer.py -i image_name -o output/path/to/save/image -c ["list","of","class","names"] -m model/path/model.pth
-
   There will be a prompt asking if you're "All set up and ready to take a snapshot with your camera?", you can then press y to continue.
 
-  If successful you will have a prediction in the format:
+If successful you will have a prediction in the format:
   "Predicted class: "
   "Predicted label: "
   
