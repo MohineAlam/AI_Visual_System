@@ -16,7 +16,16 @@
 
 
 ### Step One
+- Clone this github respository to access the scripts and requirements, using the clone link etc.
 - download python v3.10 so it is compatible with the lucam software as it uses older python versions
+  
+- Set up and activate your environemnt, and install required packages using the requirement.txt file:
+  python -3.10 -m venv lucam-env
+  source lucam-env/Scripts/activate
+  pip install -r requirements.txt
+
+OR
+
 - create a virtual environment with the correct python version e.g.:
   python -3.10 -m venv lucam-env
 - activate the envrionment
@@ -27,7 +36,6 @@
 
 ### Step Two
 - set up your lumenera camera with the USB-B to USB-A cable connecting it to your PC (plug in the barrel jack charger if required - usually the USB cable is enough to power it)
-- Clone this github respository to access the scripts, using the clone link etc.
 - Run the test_lucam.py script, this will test if the wrapper library works with the SDK:
   python test_lucam.py
 
