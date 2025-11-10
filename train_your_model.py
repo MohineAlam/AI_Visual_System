@@ -1,9 +1,9 @@
 # load libraries
-from torchvision import datasets, transforms, models
-from torch.utils.data import DataLoader
-import torch.nn as nn
-import torch
-import torch.optim as optim
+from torchvision import datasets, transforms, models # ready to use image data sets, image preprocessing tools, pre-trained deep learnign model
+from torch.utils.data import DataLoader # wraps data sets and handles how to train data
+import torch.nn as nn # neural network building blocks e.g. loss of fucntion
+import torch # core pytorch package e.g. compute gradients
+import torch.optim as optim # optimisation algorithm, train nn e.g. adam
 import os
 import argsparse
 import sys
