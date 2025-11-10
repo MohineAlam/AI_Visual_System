@@ -71,7 +71,7 @@ def run_model(output):
   print(f"Predicted class: {predicted_class}")
 
   # map ID
-  url = 
+  url = "https://raw.githubusercontent.com/pytorch/hub/master/imagenet_classes.txt"
   classes = urllib.request.urlopen(url).read().decode("utf-8").splitlines()
   print("Predicted label: ", classes[predicted_class])
 
