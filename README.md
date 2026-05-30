@@ -29,7 +29,6 @@ Main libraries for interfacing with the drive and setting up the machine learnin
 - set up your lumenera camera with the USB-B to USB-A cable connecting it to your PC (plug in the barrel jack charger if required - usually the USB cable is enough to power it)
 - Run the test_lucam.py script, this will test if the wrapper library works with the SDK:
 ```bash
-  conda env activate environment.yml 
   python test_lucam.py
 ```
 
