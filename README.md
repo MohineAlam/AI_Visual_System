@@ -1,38 +1,27 @@
 # AI-Visual-System
-## In this repository you will find the pipeline for the AI visual system 
+## In this repository you will find the pipeline for setting up a machine learning visual system - this will predict what the image is!
 
-## In this project I used the following: 
+## In this project I use the following: 
 ### Hardware
 - Lumenera LU200c industrial camera (including USB-B to USB-A cable and charger)
 
 ### Software
-- python v3.10 (download from official website: https://www.python.org/)
+#### Camera driver
 -  Software Developer Kit (SDK) v6.9.0 from Lucam Teledyne (link for windows from official website: https://www.teledynevisionsolutions.com/en-gb/support/support-center/software-firmware-downloads/lumenera/lucam-software-and-software-development-kit/)
+#### python libraries
+Main libraries for interfacing with the drive and setting up the machine learning model (install using conda and the enviornment.yml file):
 - lucam (wrapper library which interacts with the lumenera LuCam API)
 - opencv-python (image/video processing includnig computer vision library)
 - torch and torchvision - from pytorch (deep learning framework and computer vision libraries - image classification and object detection)
-- json (to encode and decode JSON data, ease data exchange between systems and API)
-- argparse (creates user friendly command line interfaces)
-
 
 ### Step One
-- Clone this github respository to access the scripts and requirements, using the clone link etc.
-- download python v3.10 so it is compatible with the lucam software as it uses older python versions
+- Clone this github respository using the clone link etc.
   
-- Set up and activate your environemnt, and install required packages using the requirement.txt file:
-  python -3.10 -m venv lucam-env
-  source lucam-env/Scripts/activate
-  pip install -r requirements.txt
-
-OR
-
-- create a virtual environment with the correct python version e.g.:
-  python -3.10 -m venv lucam-env
-- activate the envrionment
-  source lucam-env/Scripts/activate
+- Set up and activate your environemnt, and install required packages using the environment.yml:
+``` bash
+  conda env create -f environment.yml 
+```
 - Download the SDK from the official website (for your operating system - linux / windows)
-- pip install the following libraries:
-  pip install opencv-python torch torchvision lucam argparse
 
 ### Step Two
 - set up your lumenera camera with the USB-B to USB-A cable connecting it to your PC (plug in the barrel jack charger if required - usually the USB cable is enough to power it)
