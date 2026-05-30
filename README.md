@@ -1,7 +1,7 @@
 # AI-Visual-System
 ## In this repository you will find the pipeline for setting up a machine learning visual system - this will predict what the image is!
 
-## In this project I use the following: 
+## In this project I use the following resources (within a windows os): 
 ### Hardware
 - Lumenera LU200c industrial camera (including USB-B to USB-A cable and charger)
 
@@ -9,7 +9,7 @@
 #### Camera driver
 -  Software Developer Kit (SDK) v6.9.0 from Lucam Teledyne (link for windows from official website: https://www.teledynevisionsolutions.com/en-gb/support/support-center/software-firmware-downloads/lumenera/lucam-software-and-software-development-kit/)
 #### python libraries
-Main libraries for interfacing with the drive and setting up the machine learning model (install using conda and the enviornment.yml file):
+Main libraries for interfacing with the drive and setting up the machine learning model (install using a python environment):
 - lucam (wrapper library which interacts with the lumenera LuCam API)
 - opencv-python (image/video processing includnig computer vision library)
 - torch and torchvision - from pytorch (deep learning framework and computer vision libraries - image classification and object detection)
@@ -17,16 +17,21 @@ Main libraries for interfacing with the drive and setting up the machine learnin
 ### Step One
 - Clone this github respository using the clone link etc.
   
-- Set up and activate your environemnt, and install required packages using the environment.yml:
+- Set up and activate your environemnt, and install required packages using the requirement.txt file:
 ``` bash
-  conda env create -f environment.yml 
+  python -m venv .venv
+  .\.venv\Scripts\Activate.ps1
+  pip install -r requiremnts.txt
 ```
-- Download the SDK from the official website (for your operating system - linux / windows)
+- Download the SDK from the official website (for windows os)
 
 ### Step Two
 - set up your lumenera camera with the USB-B to USB-A cable connecting it to your PC (plug in the barrel jack charger if required - usually the USB cable is enough to power it)
 - Run the test_lucam.py script, this will test if the wrapper library works with the SDK:
+```bash
+  conda env activate environment.yml 
   python test_lucam.py
+```
 
 If successful you should recieve a message in the follownig structure:
 "Camera initialised: pUSHORT"
