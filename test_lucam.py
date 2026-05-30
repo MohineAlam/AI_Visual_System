@@ -2,12 +2,6 @@
 from lucam import Lucam # class we will use
 import cv2
 
-# you can check if the class exists by uncommenting
-#print(dir(Lucam))
-
-# you can check if the SDK is correct for your OS by uncommecting and inputting your path to SDK
-#ctypes.WinDLL(r"\path\to\the\SDK\you\installed\lucamapi.dll")
-
 # initialise the camera
 cam = Lucam()
 print("Camera initialised: ", cam.name)
