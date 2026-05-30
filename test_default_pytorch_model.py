@@ -11,7 +11,7 @@ import urllib.request
 #================================#
 
 ####---- command line arguments ----####
-parser = argparseArgumentParser(
+parser = argparse.ArgumentParser(
   description = "Argument for output folder. This is where the images will be saved."
 )
 parser.add_argument("-o","--output",required=True,help="Output pathway to store images. Use forward slashes.")
@@ -44,13 +44,13 @@ def preprocess_img(output):
   img_rgb = take_snapshot(output)
   
   # preprocessing parameters
-  preprocess = transforms.Compose[(
+  preprocess = transforms.Compose([
     transforms.ToPILImage(),
     transforms.Resize(256),
     transforms.CenterCrop(224),
     transforms.ToTensor(), # converts to torch.Tensor and scale to [0,1]
     transforms.Normalize(mean=[0.485,0.456,0.406], std=[0.229, 0.224, 0.225])
-  )]
+  ])
 
   # apply changes and add batch size value
   input_tensor = preprocess(img_rgb).unsqueeze(0) # tensor array changed and will be in format [batch_size, channel, height, width]
