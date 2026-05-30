@@ -1,1 +1,8 @@
+conda-forge
+bioconda
+defaults
+python=3.10
+opencv
+pytorch
+lucam
 
