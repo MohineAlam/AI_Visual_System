@@ -1,8 +1,8 @@
-conda-forge
-bioconda
-defaults
-python=3.10
-opencv
-pytorch
-lucam
-
+opencv-python
+numpy
+torch
+torchvision
+matplotlib
+pillow
+scikit-learn
+tqdm
